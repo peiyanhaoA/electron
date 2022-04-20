@@ -1,8 +1,8 @@
 REM Parameters vs_buildtools.exe download link and wsdk version
 @ECHO OFF
 
-SET wsdk10_link=https://go.microsoft.com/fwlink/?linkid=2120843
-SET wsdk=10SDK.19041
+SET wsdk10_link=https://go.microsoft.com/fwlink/?linkid=2164145
+SET wsdk=10SDK.20348
 
 REM Check for disk space
 Rem        543210987654321
