@@ -19,8 +19,8 @@
 #        $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 #      }
 version: 1.0.{build}
-build_cloud: electronhq-16-core
-image: Visual Studio 2019
+build_cloud: electron-16-core2
+image: base-electron
 environment:
   GIT_CACHE_PATH: C:\Users\appveyor\libcc_cache
   ELECTRON_OUT_DIR: Default
