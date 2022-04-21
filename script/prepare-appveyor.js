@@ -18,8 +18,8 @@ const ROLLER_BRANCH_PATTERN = /^roller\/chromium$/;
 // const DEFAULT_BUILD_IMAGE = 'base-electron';
 const DEFAULT_BUILD_CLOUD_ID = '1598';
 const DEFAULT_BUILD_CLOUD = 'electronhq-16-core';
-const DEFAULT_BAKE_BASE_IMAGE = 'Windows_Default_Appveyor';
-const DEFAULT_BUILD_IMAGE = 'Windows_Default_Appveyor';
+const DEFAULT_BAKE_BASE_IMAGE = 'Visual Studio 2019';
+const DEFAULT_BUILD_IMAGE = 'Visual Studio 2019';
 
 const appveyorBakeJob = 'electron-bake-image';
 const appVeyorJobs = {
@@ -189,7 +189,7 @@ async function prepareAppVeyorImage (opts) {
       console.log(`No AppVeyor image found for ${imageVersion} in ${cloudId}.
                    Creating new image for ${imageVersion}, using Chromium ${CHROMIUM_VERSION} - job will run after image is baked.`);
       await bakeAppVeyorImage(branch, { ...opts, version: imageVersion, cloudId });
-      useAppVeyorImage(branch, { ...opts, version: DEFAULT_BUILD_IMAGE, cloudId });
+      // useAppVeyorImage(branch, { ...opts, version: DEFAULT_BUILD_IMAGE, cloudId });
     }
   }
 }

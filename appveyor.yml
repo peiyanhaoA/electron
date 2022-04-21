@@ -25,7 +25,7 @@
 
 version: 1.0.{build}
 build_cloud: electronhq-16-core
-image: Windows_Default_Appveyor
+image: Visual Studio 2019
 environment:
   GIT_CACHE_PATH: C:\Users\appveyor\libcc_cache
   ELECTRON_OUT_DIR: Default
