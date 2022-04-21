@@ -346,14 +346,14 @@ step-restore-brew-cache: &step-restore-brew-cache
       - /usr/local/Cellar/gnu-tar
       - /usr/local/bin/gtar
     keys:
-      - v4-brew-cache-{{ arch }}
+      - v5-brew-cache-{{ arch }}
 
 step-save-brew-cache: &step-save-brew-cache
   save_cache:
     paths:
       - /usr/local/Cellar/gnu-tar
       - /usr/local/bin/gtar
-    key: v4-brew-cache-{{ arch }}
+    key: v5-brew-cache-{{ arch }}
     name: Persisting brew cache
 
 step-get-more-space-on-mac: &step-get-more-space-on-mac
@@ -926,12 +926,12 @@ step-touch-sync-done: &step-touch-sync-done
 step-maybe-restore-src-cache: &step-maybe-restore-src-cache
   restore_cache:
     keys:
-      - v12-src-cache-{{ checksum "src/electron/.depshash" }}
+      - v13-src-cache-{{ checksum "src/electron/.depshash" }}
     name: Restoring src cache
 step-maybe-restore-src-cache-marker: &step-maybe-restore-src-cache-marker
   restore_cache:
     keys:
-      - v5-src-cache-marker-{{ checksum "src/electron/.depshash" }}
+      - v6-src-cache-marker-{{ checksum "src/electron/.depshash" }}
     name: Restoring src cache marker
 
 # Restore exact or closest git cache based on the hash of DEPS and .circle-sync-done
@@ -942,8 +942,8 @@ step-maybe-restore-git-cache: &step-maybe-restore-git-cache
     paths:
       - gclient-cache
     keys:
-      - v5-gclient-cache-{{ checksum "src/electron/.circle-sync-done" }}-{{ checksum "src/electron/DEPS" }}
-      - v5-gclient-cache-{{ checksum "src/electron/.circle-sync-done" }}
+      - v6-gclient-cache-{{ checksum "src/electron/.circle-sync-done" }}-{{ checksum "src/electron/DEPS" }}
+      - v6-gclient-cache-{{ checksum "src/electron/.circle-sync-done" }}
     name: Conditionally restoring git cache
 
 step-restore-out-cache: &step-restore-out-cache
@@ -951,7 +951,7 @@ step-restore-out-cache: &step-restore-out-cache
     paths:
       - ./src/out/Default
     keys:
-      - v9-out-cache-{{ checksum "src/electron/.depshash" }}-{{ checksum "src/electron/.depshash-target" }}
+      - v10-out-cache-{{ checksum "src/electron/.depshash" }}-{{ checksum "src/electron/.depshash-target" }}
     name: Restoring out cache
 
 step-set-git-cache-path: &step-set-git-cache-path
@@ -968,14 +968,14 @@ step-save-git-cache: &step-save-git-cache
   save_cache:
     paths:
       - gclient-cache
-    key: v5-gclient-cache-{{ checksum "src/electron/.circle-sync-done" }}-{{ checksum "src/electron/DEPS" }}
+    key: v6-gclient-cache-{{ checksum "src/electron/.circle-sync-done" }}-{{ checksum "src/electron/DEPS" }}
     name: Persisting git cache
 
 step-save-out-cache: &step-save-out-cache
   save_cache:
     paths:
       - ./src/out/Default
-    key: v9-out-cache-{{ checksum "src/electron/.depshash" }}-{{ checksum "src/electron/.depshash-target" }}
+    key: v10-out-cache-{{ checksum "src/electron/.depshash" }}-{{ checksum "src/electron/.depshash-target" }}
     name: Persisting out cache
 
 step-run-electron-only-hooks: &step-run-electron-only-hooks
@@ -1013,7 +1013,7 @@ step-save-src-cache: &step-save-src-cache
   save_cache:
     paths:
       - /var/portal
-    key: v12-src-cache-{{ checksum "/var/portal/src/electron/.depshash" }}
+    key: v13-src-cache-{{ checksum "/var/portal/src/electron/.depshash" }}
     name: Persisting src cache
 step-make-src-cache-marker: &step-make-src-cache-marker
   run:
@@ -1023,7 +1023,7 @@ step-save-src-cache-marker: &step-save-src-cache-marker
   save_cache:
     paths:
       - .src-cache-marker
-    key: v5-src-cache-marker-{{ checksum "/var/portal/src/electron/.depshash" }}
+    key: v6-src-cache-marker-{{ checksum "/var/portal/src/electron/.depshash" }}
 
 step-maybe-early-exit-no-doc-change: &step-maybe-early-exit-no-doc-change
   run:
