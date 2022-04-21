@@ -26,9 +26,9 @@ port1.postMessage({ some: 'message' })
 const { ipcRenderer } = require('electron')
 ipcRenderer.on('port', (e) => {
   // e.ports is a list of ports sent along with this message
-  e.ports[0].on('message', (messageEvent) => {
+  e.ports[0].onmessage = (messageEvent) => {
     console.log(messageEvent.data)
-  })
+  }
 })
 ```
 
